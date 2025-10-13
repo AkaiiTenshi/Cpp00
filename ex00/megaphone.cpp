@@ -1,16 +1,21 @@
-#include <cctype>
 #include <iostream>
+#include <string>
+#include <algorithm>
+#include <cctype>
 
-using namespace std;
+int main(int ac, char **av) {
+	std::string str;
+	if (ac>1){
+		for(int i = 1; av[i]; i++){
+			str.append(av[i]);
+			str.append(" ");
+		}
 
-int main(int ac, char **av){
-    char c = av[1][1];
-    if (ac > 1)
-    {
-        std::cout << c << std::endl;
-       c = toupper(c);
-        std::cout << c << std::endl;
-    }
-    std::cout << "Test" << std::endl;
+		std::transform(str.begin(), str.end(), str.begin(), ::toupper);
+
+		std::cout <<  str << std::endl;
+	} 
+	else
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" <<std::endl;
     return 0;
 }
