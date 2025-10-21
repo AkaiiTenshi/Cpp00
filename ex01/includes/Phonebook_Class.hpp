@@ -9,7 +9,7 @@
 class Phonebook {
 	private:
 		Contact Contact[8];
-		int	i;
+		int	index;
 
 	public:
 		Phonebook();
@@ -18,3 +18,4 @@ class Phonebook {
 		void AddFoo();
 };
 
+#endif
