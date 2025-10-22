@@ -3,13 +3,15 @@
 
 #include "Contact_Class.hpp"
 #include <string>
+#include <iomanip>
 #include <cstdlib>
 #include <iostream>
 
 class Phonebook {
 	private:
-		Contact Contact[8];
+		Contact contact[8];
 		int	index;
+		int nu_contacts;
 
 	public:
 		Phonebook();

@@ -2,6 +2,9 @@
 # define CONTACT_CLASS_H
 
 #include <string>
+#include <cstdlib>
+#include <iostream>
+#include <iomanip>
 
 
 class Contact{
@@ -13,13 +16,16 @@ class Contact{
 		std::string _DarkestSecret;
 	
 	public:
+		Contact();
 		Contact(std::string FirstName, std::string LastName, std::string PhoneNumber, std::string Nickname, std::string Secret);
 		~Contact();
-		std::string getLastN(std::string String) const ;
-		std::string getFirstN(std::string String) const ;
-		std::string getNickname(std::string String) const ;
-		std::string getPhoneNu(std::string String) const ;
-		std::string getSecret(std::string String) const ;
+		std::string getLastN() const ;
+		std::string getFirstN() const ;
+		std::string getNickname() const ;
+		std::string getPhoneNu() const ;
+		std::string getSecret() const ;
+		void printTab() const;
+		void printContact() const;
 };
 
 #endif
