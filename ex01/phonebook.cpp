@@ -8,8 +8,29 @@ Phonebook::~Phonebook(){
 
 }
 
-void clearfoo(void){
+void clearfoo(int x){
 	std::cout << "\033[2J\033[H";
+	if (x == 1)
+	{
+		std::cout << "                                                     ██╗██╗   ██╗███████╗████████╗     █████╗     ██████╗ ██╗  ██╗ ██████╗ ███╗   ██╗███████╗██████╗  ██████╗  ██████╗ ██╗  ██╗                                               " 
+			<< "\n"
+			<< "                                                     ██║██║   ██║██╔════╝╚══██╔══╝    ██╔══██╗    ██╔══██╗██║  ██║██╔═══██╗████╗  ██║██╔════╝██╔══██╗██╔═══██╗██╔═══██╗██║ ██╔╝                                               "
+			<< "\n"
+			<< "█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗     ██║██║   ██║███████╗   ██║       ███████║    ██████╔╝███████║██║   ██║██╔██╗ ██║█████╗  ██████╔╝██║   ██║██║   ██║█████╔╝█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗"
+			<< "\n"
+			<< "╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝██   ██║██║   ██║╚════██║   ██║       ██╔══██║    ██╔═══╝ ██╔══██║██║   ██║██║╚██╗██║██╔══╝  ██╔══██╗██║   ██║██║   ██║██╔═██╗╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝"
+			<< "\n"
+			<< "                                                ╚█████╔╝╚██████╔╝███████║   ██║       ██║  ██║    ██║     ██║  ██║╚██████╔╝██║ ╚████║███████╗██████╔╝╚██████╔╝╚██████╔╝██║  ██╗                                               "
+			<< "\n"
+			<< "                                                 ╚════╝  ╚═════╝ ╚══════╝   ╚═╝       ╚═╝  ╚═╝    ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚═════╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝                                               "
+			<< "\n";
+
+
+
+		std::cout << "---------Helper--------------------------" << "\n" << "ADD: Input a new contact." << "\n" << "SEARCH: Search through existing contacts." << "EXIT: Exits the Phonebook." << "----------------------------------------- " << std::endl;
+	}
+	else if (x == 2)
+		std::cout << "not yet" << std::endl;
 }
 
 int	StringToInt(const std::string choice)
@@ -27,7 +48,7 @@ int	StringToInt(const std::string choice)
 void Phonebook::SearchFoo(){
 	std::string Line;
 	std::string array[4] = { "Index", "First name", "Last name", "Nickname"}; 
-	clearfoo();
+	clearfoo(2);
 	for (int i = 0; i < 4; i++)
 		std::cout << std::setw(10) << array[i] << "|";
 	std::cout << std::endl;
@@ -61,18 +82,34 @@ void Phonebook::AddFoo(){
 
 	if (this->index == 8)
 		this->index = 0;
-	std::cout << "First Name: " << std::endl;
-	std::getline(std::cin,fname);
+	do {
+		clearfoo(1);
+		std::cout << "First Name: " << std::endl;
+		std::getline(std::cin,fname);
+	} while (fname.empty());
+	do {
+		clearfoo(1);
 	std::cout << "Last Name: " << std::endl;
 	std::getline(std::cin,lname);
+	}while (lname.empty());
+	do {
+		clearfoo(1);
 	std::cout << "Nickname: " << std::endl;
 	std::getline(std::cin,nickname);
+	} while (nickname.empty());
+	do{
+		clearfoo(1);
 	std::cout << "Phone Number: " << std::endl;
 	std::getline(std::cin,phone);
+	} while (phone.empty());
+	do {
+		clearfoo(1);
 	std::cout << "Darkest Secret: " << std::endl;
 	std::getline(std::cin,secret);
+	} while (secret.empty());
 	contact[index]= Contact(fname, lname, phone, nickname, secret);	
 	this->index++;
 	if (this->nu_contacts != 8)
 			nu_contacts++;
+	clearfoo(2);
 }
