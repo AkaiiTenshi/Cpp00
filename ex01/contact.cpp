@@ -3,7 +3,7 @@
 Contact::Contact(){
 
 }
-Contact::Contact(std::string FirstName, 
+Contact::Contact(std::string FirstName,
 		std::string LastName,
 		std::string PhoneNumber,
 		std::string Nickname,
@@ -11,7 +11,7 @@ Contact::Contact(std::string FirstName,
 							 _LastName(LastName),
 							 _PhoneNumber(PhoneNumber),
 							 _Nickname(Nickname),
-							 _DarkestSecret(Secret) 
+							 _DarkestSecret(Secret)
 {
 
 }
@@ -29,11 +29,19 @@ void Contact::printContact() const {
 	std::cout << "Darkest Secret: " << this->getSecret() << std::endl;
 }
 
-void Contact::printTab() const {
-	std::cout << std::setw(10) << this->getFirstN() << "|";
-	std::cout << std::setw(10) << this->getLastN() << "|";
-	std::cout << std::setw(10) << this->getNickname() << "|" <<std::endl;
+void Contact::FormatPrint(std::string field) const {
+
+    if (field.length() > 10)
+        field = field.substr(0, 9) + ".";
+    std::cout << YELLOW << std::setw(10) << field << "|" << RESET;
 }
+void Contact::printTab() const {
+    FormatPrint(getFirstN());
+    FormatPrint(getLastN());
+    FormatPrint(getNickname());
+    std::cout << std::endl;
+}
+
 std::string Contact::getLastN() const {
 	return (_LastName);
 }

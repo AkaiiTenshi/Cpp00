@@ -5,6 +5,7 @@ int main(){
 	std::string Line;
 	while (1)
 	{
+        clearfoo(1);
 		std::getline(std::cin, Line);
 		if (Line == "SEARCH")
 			phonebook.SearchFoo();
